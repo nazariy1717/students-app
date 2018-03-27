@@ -15,22 +15,27 @@ class Login extends React.Component {
 
     render() {
         return (
-            <div className="ui center aligned middle aligned grid login-content">
-                <div className="five wide column ">
-                    <h2 className="ui center aligned header">Вхід в систему</h2>
-                    <form action="/" className="ui large form">
-                        <div className="ui stacked segment">
-                            <div className="field">
-                                <div className="ui fluid left icon input">
-                                    <input type="text" placeholder="Enter your login" />
-                                    <i className="user icon" />
+            <div className="login-page">
+                <div className="login-page__cell">
+                    <div className="login-page__content">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Nulp_logo_ukr.jpg/280px-Nulp_logo_ukr.jpg" className="ui small centered image" alt=""/>
+
+                        <h2 className="ui center aligned header">Вхід в систему</h2>
+                        <form action="/" className="ui large form">
+                            <div className="ui stacked segment">
+                                <div className="field">
+                                    <div className="ui fluid left icon input">
+                                        <input type="text" placeholder="Enter your login" />
+                                        <i className="user icon" />
+                                    </div>
                                 </div>
+                                <button type="submit" className="ui primary large fluid button" onSubmit={this.login}>Увійти</button>
                             </div>
-                            <button type="submit" className="ui primary large fluid button" onSubmit={this.login}>Увійти</button>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
+
         );
     }
 }

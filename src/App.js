@@ -1,14 +1,14 @@
 import React from 'react';
 import Login from "./pages/Login";
+import Footer from "./components/Footer";
 
 class App extends React.Component {
   render() {
     return (
         <div>
-            <div className="">
-                <h1 className="ui block header">Система обліку успрішності студентів</h1>
-            </div>
             <Login />
+
+            <Footer />
         </div>
 
     );
