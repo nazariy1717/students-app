@@ -4,14 +4,19 @@ import React from 'react';
 
 class Login extends React.Component {
 
+    constructor(props){
+        super(props);
+        this.login = this.login.bind(this);
+    }
+
     login (){
 
     }
 
     render() {
         return (
-            <div className="ui center aligned middle aligned grid"  >
-                <div className="six wide column ">
+            <div className="ui center aligned middle aligned grid login-content">
+                <div className="five wide column ">
                     <h2 className="ui center aligned header">Вхід в систему</h2>
                     <form action="/" className="ui large form">
                         <div className="ui stacked segment">
