@@ -8,7 +8,7 @@ class Footer extends React.Component {
         return (
             <footer className="footer">
                 <div className="ui section divider"></div>
-                <p className="footer__txt" >Система обліку відвідування студентів</p>
+                <p className="footer__txt" >Система моніторингу відвідування студентів занять</p>
             </footer>
 
         );
