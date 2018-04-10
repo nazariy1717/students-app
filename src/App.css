@@ -16,6 +16,11 @@
     margin: auto;
 }
 
+.login-page__block{
+    padding: 60px 30px!important;
+}
+
+
 .login-page__img{
     display: block;
 }

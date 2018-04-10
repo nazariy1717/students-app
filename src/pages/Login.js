@@ -18,11 +18,14 @@ class Login extends React.Component {
             <div className="login-page">
                 <div className="login-page__cell">
                     <div className="login-page__content">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Nulp_logo_ukr.jpg/280px-Nulp_logo_ukr.jpg" className="ui small centered image" alt=""/>
 
-                        <h2 className="ui center aligned header">Вхід в систему</h2>
                         <form action="/" className="ui large form">
-                            <div className="ui stacked segment">
+                            <div className="ui stacked segment login-page__block">
+
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Nulp_logo_ukr.jpg/280px-Nulp_logo_ukr.jpg" className="ui small centered image" alt=""/>
+
+                                <h2 className="ui center aligned header">Вхід в систему</h2>
+
                                 <div className="field">
                                     <div className="ui fluid left icon input">
                                         <input type="text" placeholder="Enter your login" />
