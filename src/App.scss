@@ -1,0 +1,28 @@
+.login-page{
+    display: table;
+    width: 100%;
+    height: calc(100vh - 100px);
+    &__cell{
+        display: table-cell;
+        vertical-align: middle;
+        width: 100%;
+        height: 100%;
+    }
+    &__content{
+        max-width: 450px;
+        padding: 0 15px;
+        margin: auto;
+    }
+    &__block{
+        padding: 60px 30px;
+    }
+    &__img{
+        display: block;
+    }
+}
+
+
+/* footer */
+.footer__txt{
+    text-align: center;
+}

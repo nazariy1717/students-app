@@ -1,23 +1,35 @@
 {
   "name": "students-app",
-  "version": "0.1.0",
-  "private": true,
+  "version": "1.0.0",
+  "description": "students app",
+  "main": "index.js",
   "dependencies": {
-    "mongoose": "^5.0.14",
+    "node-sass-chokidar": "^1.2.2",
+    "npm-run-all": "^4.1.2",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "react-scripts": "1.1.1"
+    "react-scripts": "^1.1.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build-css": "node-sass-chokidar src/ -o src/",
+    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
+
+    "start-js": "react-scripts start",
+    "start": "npm-run-all -p watch-css start-js",
+    "build-js": "react-scripts build",
+    "build": "npm-run-all build-css build-js",
+
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "devDependencies": {
-    "node-sass": "^4.8.3",
-    "nodemon": "^1.17.3",
-    "sass-loader": "^6.0.7",
-    "webpack": "^4.3.0"
-  }
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nazariy1717/students-app.git"
+  },
+  "author": "Nazariy Kalinchuk",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nazariy1717/students-app/issues"
+  },
+  "homepage": "https://github.com/nazariy1717/students-app#readme"
 }
