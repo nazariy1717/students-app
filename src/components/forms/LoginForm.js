@@ -3,39 +3,62 @@ import React from 'react';
 
 class LoginForm extends React.Component {
 
+    state = {
+        data: {
+            email: '',
+            password: ''
+        },
+        loading: false,
+        errors: []
+    };
+
     constructor(props) {
         super(props);
-        this.login = this.login.bind(this);
+        this.onChange = this.onChange.bind(this);
+        this.onSubmit = this.onSubmit.bind(this);
     }
 
-    login() {
+    onChange(e){
+        this.setState({
+            data: { ...this.state.data, [e.target.name]: e.target.value }
+        })
+    }
+
+    onSubmit(){
 
     }
 
     render() {
+
+        const { data } = this.state;
+
         return (
 
-
-                        <form action="/" className="ui large form">
-                            <div className="ui stacked segment login-page__block">
-
-                                <img
-                                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Nulp_logo_ukr.jpg/280px-Nulp_logo_ukr.jpg"
-                                    className="ui small centered image" alt=""/>
-
-                                <h2 className="ui center aligned header">Вхід в систему</h2>
-
-                                <div className="field">
-                                    <div className="ui fluid left icon input">
-                                        <input type="text" placeholder="Enter your login"/>
-                                        <i className="user icon"/>
-                                    </div>
-                                </div>
-                                <button type="submit" className="ui primary large fluid button" onSubmit={this.login}>
-                                    Увійти
-                                </button>
-                            </div>
-                        </form>
+            <form action="/" id="" onSubmit={this.onSubmit}>
+                <div className="form-group">
+                    <label htmlFor="email">Email:</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Email"
+                        value={data.email}
+                        onChange={this.onChange}
+                    />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="password">Пароль:</label>
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Пароль:"
+                        value={data.password}
+                        onChange={this.onChange}
+                    />
+                </div>
+                <button type="submit" className="ui primary large fluid button">Увійти</button>
+            </form>
 
         );
     }
