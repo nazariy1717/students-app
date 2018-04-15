@@ -29,7 +29,8 @@ class LoginForm extends React.Component {
         })
     }
 
-    onSubmit(){
+    onSubmit(e){
+        e.preventDefault();
         const errors = this.validate(this.state.data);
         this.setState({ errors });
 
