@@ -9,10 +9,15 @@
     "prop-types": "^15.6.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-redux": "^5.0.7",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
     "react-scripts": "^1.1.1",
-    "validator": "^9.4.1"
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0",
+    "validator": "^9.4.1",
+    "redux-devtools-extension": "^2.13.2"
+
   },
   "scripts": {
     "build-css": "node-sass-chokidar src/ -o src/",
@@ -33,5 +38,7 @@
   "bugs": {
     "url": "https://github.com/nazariy1717/students-app/issues"
   },
-  "homepage": "https://github.com/nazariy1717/students-app#readme"
+  "homepage": "https://github.com/nazariy1717/students-app#readme",
+  "devDependencies": {
+  }
 }
