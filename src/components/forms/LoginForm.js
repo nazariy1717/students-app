@@ -1,4 +1,8 @@
 import React from 'react';
+import Validator from 'validator';
+import PropTypes from 'prop-types';
+
+import InlineError from '../messages/InlineError';
 
 
 class LoginForm extends React.Component {
@@ -16,6 +20,7 @@ class LoginForm extends React.Component {
         super(props);
         this.onChange = this.onChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
+        this.validate = this.validate.bind(this);
     }
 
     onChange(e){
@@ -25,16 +30,32 @@ class LoginForm extends React.Component {
     }
 
     onSubmit(){
+        const errors = this.validate(this.state.data);
+        this.setState({ errors });
 
+        if(Object.keys(errors).length === 0){
+            this.props.submit(this.state.data);
+        }
+    }
+
+    validate(data){
+        const errors = {};
+        if(!Validator.isEmail(data.email)){
+            errors.email = 'Email невірний';
+        }
+        if(!data.password){
+            errors.password = "Обовязкове поле";
+        }
+        return errors;
     }
 
     render() {
 
-        const { data } = this.state;
+        const { data, errors } = this.state;
 
         return (
 
-            <form action="/" id="" onSubmit={this.onSubmit}>
+            <form  onSubmit={this.onSubmit}>
                 <div className="form-group">
                     <label htmlFor="email">Email:</label>
                     <input
@@ -45,6 +66,7 @@ class LoginForm extends React.Component {
                         value={data.email}
                         onChange={this.onChange}
                     />
+                    { errors.email && <InlineError text={errors.email}/> }
                 </div>
                 <div className="form-group">
                     <label htmlFor="password">Пароль:</label>
@@ -56,6 +78,8 @@ class LoginForm extends React.Component {
                         value={data.password}
                         onChange={this.onChange}
                     />
+                    { errors.password && <InlineError text={errors.password}/>}
+
                 </div>
                 <button type="submit" className="ui primary large fluid button">Увійти</button>
             </form>
@@ -63,5 +87,9 @@ class LoginForm extends React.Component {
         );
     }
 }
+
+LoginForm.propTypes = {
+  submit: PropTypes.func.isRequired
+};
 
 export default LoginForm;
