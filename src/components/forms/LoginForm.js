@@ -3,6 +3,7 @@ import Validator from 'validator';
 import PropTypes from 'prop-types';
 
 import InlineError from '../messages/InlineError';
+import Notify from '../messages/Notify';
 
 
 class LoginForm extends React.Component {
@@ -35,7 +36,12 @@ class LoginForm extends React.Component {
         this.setState({ errors });
 
         if(Object.keys(errors).length === 0){
-            this.props.submit(this.state.data);
+            this.props
+                .submit(this.state.data)
+                .catch(err => {
+                    console.log(err.response);
+                    this.setState({ errors: err.response.data.errors })
+                });
         }
     }
 
@@ -57,6 +63,7 @@ class LoginForm extends React.Component {
         return (
 
             <form onSubmit={this.onSubmit}>
+                { errors.global && <Notify text={errors.global}/> }
                 <div className="form-group">
                     <label htmlFor="email">Email:</label>
                     <input

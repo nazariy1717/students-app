@@ -39,5 +39,6 @@
     "url": "https://github.com/nazariy1717/students-app/issues"
   },
   "homepage": "https://github.com/nazariy1717/students-app#readme",
-  "devDependencies": {}
+  "devDependencies": {},
+  "proxy": "http://localhost:8080"
 }
