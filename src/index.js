@@ -16,10 +16,7 @@ import './App.scss';
 import registerServiceWorker from './registerServiceWorker';
 
 
-const store = createStore(
-    rootReducer,
-    composeWithDevTools(applyMiddleware(thunk),
-));
+const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
 
 
 ReactDOM.render(
