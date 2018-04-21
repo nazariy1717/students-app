@@ -56,7 +56,7 @@ class LoginForm extends React.Component {
 
         return (
 
-            <form  onSubmit={this.onSubmit}>
+            <form onSubmit={this.onSubmit}>
                 <div className="form-group">
                     <label htmlFor="email">Email:</label>
                     <input
@@ -80,7 +80,6 @@ class LoginForm extends React.Component {
                         onChange={this.onChange}
                     />
                     { errors.password && <InlineError text={errors.password}/>}
-
                 </div>
                 <button type="submit" className="ui primary large fluid button">Увійти</button>
             </form>
