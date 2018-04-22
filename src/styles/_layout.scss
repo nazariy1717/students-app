@@ -1,0 +1,11 @@
+
+.footer{
+  border-top: 1px solid #f3f3f3;
+  height: 60px;
+  background-color: rgba(240,242,243,.5);
+  &__txt{
+    display: block;
+    line-height: 60px;
+    text-align: center;
+  }
+}

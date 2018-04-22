@@ -64,31 +64,33 @@ class LoginForm extends React.Component {
 
             <form onSubmit={this.onSubmit}>
                 { errors.global && <Notify text={errors.global}/> }
-                <div className="form-group">
-                    <label htmlFor="email">Email:</label>
+                <div className="form__group">
+                    <label htmlFor="email" className="form__label">Email:</label>
                     <input
                         type="email"
                         id="email"
                         name="email"
+                        className="form__input"
                         placeholder="Email"
                         value={data.email}
                         onChange={this.onChange}
                     />
                     { errors.email && <InlineError text={errors.email}/> }
                 </div>
-                <div className="form-group">
-                    <label htmlFor="password">Пароль:</label>
+                <div className="form__group">
+                    <label htmlFor="password" className="form__label">Пароль:</label>
                     <input
                         type="password"
                         id="password"
                         name="password"
+                        className="form__input"
                         placeholder="Пароль:"
                         value={data.password}
                         onChange={this.onChange}
                     />
                     { errors.password && <InlineError text={errors.password}/>}
                 </div>
-                <button type="submit" className="ui primary large fluid button">Увійти</button>
+                <button type="submit" className="btn --blue">Увійти</button>
             </form>
 
         );

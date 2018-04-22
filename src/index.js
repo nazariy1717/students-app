@@ -11,7 +11,7 @@ import rootReducer  from './rootReducer';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 import 'semantic-ui-css/semantic.min.css';
-import './App.scss';
+import './styles/App.css';
 
 import registerServiceWorker from './registerServiceWorker';
 

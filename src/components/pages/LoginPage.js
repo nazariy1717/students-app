@@ -22,8 +22,8 @@ class LoginPage extends React.Component {
             <div className="login-page">
                 <div className="login-page__cell">
                     <div className="login-page__content">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Nulp_logo_ukr.jpg/280px-Nulp_logo_ukr.jpg" alt=""/>
-                        <h2 className="ui center aligned header">Вхід в систему</h2>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Nulp_logo_ukr.jpg/280px-Nulp_logo_ukr.jpg" alt="" className="login-page__img"/>
+                        <span className="login-page__title">Вхід в систему</span>
 
                         <LoginForm submit={this.submit} />
 
