@@ -9,13 +9,14 @@ import DashboardPage from "./components/pages/DashboardPage";
 import Footer from "./components/Footer";
 
 import UserRoute from "./components/routes/UserRoute";
+import GuestRoute from "./components/routes/GuestRoute";
 
 class App extends React.Component {
   render() {
     return (
         <div className="page-container">
             <Route path="/" exact component={HomePage} />
-            <Route path="/login" exact component={LoginPage} />
+            <GuestRoute path="/login" exact component={LoginPage} />
             <UserRoute path="/dashboard" exact component={DashboardPage} />
 
             <Footer />
