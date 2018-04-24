@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { adminLogout } from '../../actions/adminAuth';
@@ -10,6 +9,8 @@ const HomePage = ({ isAdminAuthenticated, adminLogout }) => (
 
     <div className="container">
         <h1>Home page</h1>
+        {/* todo*/}
+
         { isAdminAuthenticated ? <button onClick={ () => adminLogout()}>Вийти</button> : ''}
 
     </div>

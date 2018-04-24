@@ -14,7 +14,7 @@ class AdminPage extends React.Component {
     }
 
     submit = data =>
-        this.props.adminLogin(data).then(() => this.props.history.push('/'));
+        this.props.adminLogin(data).then(() => this.props.history.push('/admin/dashboard'));
 
     render() {
         return (
