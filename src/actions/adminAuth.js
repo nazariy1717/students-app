@@ -12,14 +12,14 @@ export const adminLoggedOut = () => ({
 });
 
 
-export const login = credentials => dispatch =>
+export const adminLogin = credentials => dispatch =>
     api.admin.login(credentials).then(admin =>{
-        localStorage.studentsJWT = admin.token;
+        localStorage.adminJWT = admin.token;
         dispatch(adminLoggedIn(admin));
     });
 
 
-export const logout = () => dispatch => {
-    localStorage.removeItem('studentsJWT');
+export const adminLogout = () => dispatch => {
+    localStorage.removeItem('adminJWT');
     dispatch(adminLoggedOut());
 };

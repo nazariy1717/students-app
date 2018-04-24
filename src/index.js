@@ -14,13 +14,13 @@ import 'semantic-ui-css/semantic.min.css';
 import './styles/App.css';
 
 import registerServiceWorker from './registerServiceWorker';
-import { userLoggedIn } from './actions/auth'
+import { adminLoggedIn } from './actions/adminAuth'
 
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
 
-if(localStorage.studentsJWT){
-    const user = { token: localStorage.studentsJWT};
-    store.dispatch(userLoggedIn(user));
+if(localStorage.adminJWT){
+    const admin = { token: localStorage.adminJWT};
+    store.dispatch(adminLoggedIn(admin));
 }
 
 ReactDOM.render(
