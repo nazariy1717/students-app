@@ -7,7 +7,7 @@ import { logout } from '../../actions/auth';
 
 const HomePage = ({ isAuthenticated, logout }) => (
 
-    <div className="">
+    <div className="container">
         <h1>Home page</h1>
         { isAuthenticated ? <button onClick={ () => logout()}>Вийти</button> : <Link to="/login">Увійти</Link>}
 
