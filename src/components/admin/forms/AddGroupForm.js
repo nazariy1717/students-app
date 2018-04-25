@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import InlineError from '../../messages/InlineError';
+import Notify from '../../messages/Notify';
 
 
 class AddGroupForm extends React.Component {
@@ -58,6 +59,8 @@ class AddGroupForm extends React.Component {
 
         return (
             <form onSubmit={this.onSubmit}>
+                { errors.global && <Notify text={errors.global}/> }
+
                 <div className="form__group">
                     <label htmlFor="groupName" className="form__label">Назва групи:</label>
                     <input
