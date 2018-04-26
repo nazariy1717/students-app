@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import AddGroup from '../forms/AddGroupForm';
 import { addGroup }  from '../../../actions/admin/addGroup';
 
+
 class GroupPage extends React.Component{
 
     constructor(props){
@@ -12,8 +13,9 @@ class GroupPage extends React.Component{
         this.submit =  this.submit.bind(this);
     }
 
+
     submit = data =>
-        this.props.addGroup(data).then(() => this.props.history.push('/admin/groups'));
+        this.props.addGroup(data).then(response => alert(`Групу `+ response.groupName+ ' успішно додано!'));
 
     render(){
         return(

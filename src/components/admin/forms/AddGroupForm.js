@@ -22,7 +22,6 @@ class AddGroupForm extends React.Component {
     }
 
     onChange(e){
-        console.log(e.target.value);
         this.setState({
             data: { ...this.state.data, [e.target.name]: e.target.value }
         })
@@ -32,20 +31,22 @@ class AddGroupForm extends React.Component {
         e.preventDefault();
         const errors = this.validate(this.state.data);
         this.setState({ errors });
-
+        this.setState({
+            data: {
+                groupName: ''
+            }
+        });
         if(Object.keys(errors).length === 0){
             this.props
                 .submit(this.state.data)
                 .catch(err => {
-                    console.log(err.response);
+                    console.log(err);
                     this.setState({ errors: err.response.data.errors })
                 });
         }
     }
 
     validate(data){
-        console.log(data);
-
         const errors = {};
         if(!data.groupName){
             errors.groupName = "Поле не може бути пустим!";
@@ -60,7 +61,6 @@ class AddGroupForm extends React.Component {
         return (
             <form onSubmit={this.onSubmit}>
                 { errors.global && <Notify text={errors.global}/> }
-
                 <div className="form__group">
                     <label htmlFor="groupName" className="form__label">Назва групи:</label>
                     <input
@@ -69,7 +69,7 @@ class AddGroupForm extends React.Component {
                         name="groupName"
                         className="form__input"
                         placeholder="Назва групи"
-                        value={data.login}
+                        value={data.groupName}
                         onChange={this.onChange}
                     />
                     { errors.groupName && <InlineError text={errors.groupName}/> }
