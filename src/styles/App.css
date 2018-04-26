@@ -8,7 +8,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: Lato, sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 24px;
   color: #000; }
 
@@ -20,6 +20,13 @@ body {
     width: 100%;
     display: table-cell;
     vertical-align: middle; }
+
+h1, h2 {
+  font-weight: bold; }
+
+h1 {
+  font-size: 32px;
+  line-height: 40px; }
 
 .container {
   max-width: 1140px;
@@ -589,19 +596,58 @@ body {
     left: 0;
     top: 0;
     bottom: 0;
-    width: 50%;
-    background: url(/src/images/politeh.jpg) center no-repeat;
+    width: 40%;
+    background: url(../images/politeh.jpg) center no-repeat;
     -webkit-background-size: cover;
     background-size: cover; }
+    .home__left i {
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5); }
   .home__right {
     position: absolute;
     right: 0;
     top: 0;
     bottom: 0;
-    width: 50%;
+    width: 60%;
     background-color: #f3f3f3; }
   .home__content {
-    padding: 0 15px; }
+    padding: 0 15px;
+    text-align: center; }
+    .home__content h1 {
+      margin-bottom: 30px; }
+    .home__content p {
+      margin-bottom: 15px; }
+    .home__content button {
+      max-width: 175px;
+      display: inline-block;
+      margin: 0 15px; }
+      .home__content button + .home__content button {
+        margin-left: 30px; }
+
+.page {
+  position: relative;
+  height: 100vh; }
+  .page__sidebar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 350px;
+    background-color: #f3f3f3;
+    border-left: 1px solid #dedede; }
+  .page__content {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: calc(100% - 350px);
+    padding: 100px 60px; }
+  .page__title {
+    margin-bottom: 60px; }
 
 .footer {
   border-top: 1px solid #f3f3f3;

@@ -8,21 +8,70 @@
     left: 0;
     top: 0;
     bottom: 0;
-    width: 50%;
-    background: url(/src/images/politeh.jpg) center no-repeat;
+    width: 40%;
+    background: url(../images/politeh.jpg) center no-repeat;
     -webkit-background-size: cover;
     background-size: cover;
+    i{
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0,0,0,0.5);
+    }
   }
   &__right{
     position: absolute;
     right: 0;
     top: 0;
     bottom: 0;
-    width: 50%;
+    width: 60%;
     background-color: #f3f3f3;
   }
   &__content{
     padding: 0 15px;
+    text-align: center;
+    h1{
+      margin-bottom: 30px;
+    }
+    p{
+      margin-bottom: 15px;
+    }
+    button{
+      max-width: 175px;
+      display: inline-block;
+      margin: 0 15px;
+      & + &{
+        margin-left: 30px;
+      }
+    }
+  }
+}
+
+
+.page{
+  position: relative;
+  height: 100vh;
+  &__sidebar{
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 350px;
+    background-color: #f3f3f3;
+    border-left: 1px solid #dedede;
+  }
+  &__content{
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: calc(100% - 350px);
+    padding: 100px 60px;
+  }
+  &__title{
+    margin-bottom: 60px;
   }
 }
 

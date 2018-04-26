@@ -17,11 +17,19 @@ class GroupPage extends React.Component{
 
     render(){
         return(
-            <div>
-                <h1>Управління групами</h1>
-                <h2>Добавити групу</h2>
+            <div className="page">
+                <div className="page__sidebar">
+                    
+                </div>
+                <div className="page__content">
+                    <h1 className="page__title">Управління групами</h1>
 
-                <AddGroup submit={this.submit}/>
+                    <h2>Добавити групу</h2>
+
+                    <AddGroup submit={this.submit}/>
+                </div>
+
+
             </div>
         )
     }
