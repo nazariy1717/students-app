@@ -1,5 +1,5 @@
 import React from 'react';
-import AddGroupForm from '../forms/AddGroupForm';
+import AdminForm from '../forms/AdminForm';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
@@ -14,7 +14,7 @@ class AdminPage extends React.Component {
     }
 
     submit = data =>
-        this.props.adminLogin(data).then(() => this.props.history.push('/admin/dashboard'));
+        this.props.adminLogin(data).then(() => this.props.history.push('/admin/groups'));
 
     render() {
         return (
@@ -23,7 +23,7 @@ class AdminPage extends React.Component {
                     <div className="login-page__content">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Nulp_logo_ukr.jpg/280px-Nulp_logo_ukr.jpg" alt="" className="login-page__img"/>
                         <span className="login-page__title">Вхід в систему</span>
-                        <AddGroupForm submit={this.submit} />
+                        <AdminForm submit={this.submit} />
                     </div>
                 </div>
             </div>

@@ -1,4 +1,33 @@
 
+
+.home{
+  position: relative;
+  height: 100vh;
+  &__left{
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 50%;
+    background: url(/src/images/politeh.jpg) center no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+  }
+  &__right{
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 50%;
+    background-color: #f3f3f3;
+  }
+  &__content{
+    padding: 0 15px;
+  }
+}
+
+
+
 .footer{
   border-top: 1px solid #f3f3f3;
   height: 60px;

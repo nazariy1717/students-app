@@ -7,13 +7,23 @@ import { adminLogout } from '../../actions/adminAuth';
 
 const HomePage = ({ isAdminAuthenticated, adminLogout }) => (
 
-    <div className="container">
-        <h1>Home page</h1>
-        {/* todo*/}
 
-        { isAdminAuthenticated ? <button onClick={ () => adminLogout()}>Вийти</button> : ''}
+        <div className="home">
+            <div className="home__left"></div>
+            <div className="home__right">
+                <div className="display-table">
+                    <div className="display-table__cell">
+                        <div className="home__content">
+                            <h1>Home page</h1>
+                            { isAdminAuthenticated ? <button onClick={ () => adminLogout()}>Вийти</button> : ''}
+                        </div>
+                    </div>
+                </div>
 
-    </div>
+            </div>
+        </div>
+
+
 
 );
 
