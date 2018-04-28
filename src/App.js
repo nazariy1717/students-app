@@ -8,6 +8,7 @@ import AdminForm from "./components/admin/pages/AdminPage";
 
 
 import AdminRoute from "./components/routes/AdminRoute";
+import Notifications from 'react-notify-toast';
 
 
 
@@ -20,7 +21,7 @@ class App extends React.Component {
             <Route path="/admin" exact component={AdminForm} />
 
             <AdminRoute path="/admin/groups" exact component={GroupPage} />
-
+            <Notifications />
         </div>
 
     );

@@ -1,20 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { notify } from 'react-notify-toast';
 
 import AddGroup from '../forms/AddGroupForm';
 import GroupList from '../GroupList';
-
 import api from '../../../api';
-
 import { addGroup }  from '../../../actions/admin/addGroup';
+
 
 
 class GroupPage extends React.Component{
 
     state = {
         groups: [],
-        errors: []
+        errors: [],
     };
 
     constructor(props){
@@ -22,20 +22,31 @@ class GroupPage extends React.Component{
         this.submit =  this.submit.bind(this);
     }
 
-    componentDidMount () {
+    getGroups(){
         api.admin.getGroup()
             .then(res => this.setState({ groups: res.groupsMap }))
-            .catch(err => {
-                console.log(err.response);
-                this.setState({ errors: err.response.data.errors })
-            })
+            .catch(err => this.setState({ errors: err.response.data.errors }))
     }
 
-    submit = data =>
-        this.props.addGroup(data).then(response => alert(`Групу `+ response.groupName+ ' успішно додано!'));
+    componentDidMount () {
+        this.getGroups();
+    }
+
+    submit = data => {
+        this.props.addGroup(data)
+            .then(response => {
+                notify.show(`Групу `+ response.groupName+ ' успішно додано!', 'success' );
+                let newItem = {_id: response._id, groupName: response.groupName};
+                this.setState({
+                    groups: [...this.state.groups, newItem]
+                });
+            })
+            .catch(err => notify.show(err.response.data.errors, 'error'));
+    };
 
 
     render(){
+        console.log(this.state);
         const { errors } = this.state;
 
         return(
@@ -45,17 +56,22 @@ class GroupPage extends React.Component{
                 <div className="page__content">
                     <h1 className="page__title">Управління групами</h1>
 
-                    <h2>Добавити групу</h2>
+                    <div className="row m-row align-middle">
+                        <div className="column ">
+                            <h2>Добавити групу</h2>
+                        </div>
+                        <div className="column ">
+                            <AddGroup submit={this.submit}/>
+                        </div>
+                    </div>
 
-                    <AddGroup submit={this.submit}/>
-
-
-                    <h2>Список груп</h2>
-                    <GroupList groups={this.state.groups}/>
-                    { errors && <div>{errors}</div> }
+                    <div className="group">
+                        <span className="group__title">Список груп</span>
+                        <GroupList groups={this.state.groups}/>
+                        { errors && <div style={{ color: '#ae5856' }}>{errors}</div> }
+                    </div>
 
                 </div>
-
 
             </div>
         )

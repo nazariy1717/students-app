@@ -1,8 +1,7 @@
 
-
 .home{
   position: relative;
-  height: 100vh;
+  min-height: 100vh;
   &__left{
     position: absolute;
     left: 0;
@@ -50,40 +49,10 @@
 }
 
 
-.page{
-  position: relative;
-  height: 100vh;
-  &__sidebar{
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 350px;
-    background-color: #f3f3f3;
-    border-left: 1px solid #dedede;
-  }
-  &__content{
-    position: absolute;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    width: calc(100% - 350px);
-    padding: 100px 60px;
-  }
-  &__title{
-    margin-bottom: 60px;
-  }
+
+.InlineError{
+  display: block;
+  color: #ae5856;
+  font-size: 14px;
 }
 
-
-
-.footer{
-  border-top: 1px solid #f3f3f3;
-  height: 60px;
-  background-color: rgba(240,242,243,.5);
-  &__txt{
-    display: block;
-    line-height: 60px;
-    text-align: center;
-  }
-}

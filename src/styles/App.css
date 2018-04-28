@@ -580,7 +580,7 @@ h1 {
 .form__input {
   width: 100%;
   max-width: 300px;
-  height: 35px;
+  height: 40px;
   border: 1px solid #dedede;
   outline: none;
   font-size: 14px;
@@ -590,7 +590,7 @@ h1 {
 
 .home {
   position: relative;
-  height: 100vh; }
+  min-height: 100vh; }
   .home__left {
     position: absolute;
     left: 0;
@@ -628,40 +628,15 @@ h1 {
       .home__content button + .home__content button {
         margin-left: 30px; }
 
-.page {
-  position: relative;
-  height: 100vh; }
-  .page__sidebar {
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 350px;
-    background-color: #f3f3f3;
-    border-left: 1px solid #dedede; }
-  .page__content {
-    position: absolute;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    width: calc(100% - 350px);
-    padding: 100px 60px; }
-  .page__title {
-    margin-bottom: 60px; }
-
-.footer {
-  border-top: 1px solid #f3f3f3;
-  height: 60px;
-  background-color: rgba(240, 242, 243, 0.5); }
-  .footer__txt {
-    display: block;
-    line-height: 60px;
-    text-align: center; }
+.InlineError {
+  display: block;
+  color: #ae5856;
+  font-size: 14px; }
 
 .login-page {
   display: table;
   width: 100%;
-  height: 100vh; }
+  min-height: 100vh; }
   .login-page__cell {
     display: table-cell;
     vertical-align: middle;
@@ -686,3 +661,41 @@ h1 {
     font-size: 18px;
     line-height: 36px;
     margin: 10px 15px; }
+
+.page {
+  position: relative;
+  min-height: 100vh; }
+  .page__sidebar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 350px;
+    background-color: #f3f3f3;
+    border-left: 1px solid #dedede; }
+  .page__content {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: calc(100% - 350px);
+    padding: 100px 60px; }
+  .page__title {
+    margin-bottom: 60px; }
+
+.group {
+  margin: 50px 0; }
+  .group__title {
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px; }
+  .group__list {
+    list-style-type: none; }
+  .group__list-item {
+    padding: 0 15px;
+    height: 40px;
+    line-height: 40px;
+    background-color: #f3f3f3;
+    border: 1px solid #dedede;
+    margin-bottom: 5px; }

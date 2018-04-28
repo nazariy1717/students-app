@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import InlineError from '../../messages/InlineError';
-import Notify from '../../messages/Notify';
 
 
 class AddGroupForm extends React.Component {
@@ -30,26 +29,17 @@ class AddGroupForm extends React.Component {
     onSubmit(e){
         e.preventDefault();
         const errors = this.validate(this.state.data);
-        this.setState({
-            data: {
-                groupName: ''
-            },
-            errors: errors
-        });
+        this.setState({ errors: errors });
         if(Object.keys(errors).length === 0){
-            this.props
-                .submit(this.state.data)
-                .catch(err => {
-                    console.log(err);
-                    this.setState({ errors: err.data.errors })
-                });
+            this.props.submit(this.state.data);
         }
+        this.setState({ data: {groupName: ''} });
     }
 
     validate(data){
         const errors = {};
         if(!data.groupName){
-            errors.groupName = "Поле не може бути пустим!";
+            errors.name = "Поле не може бути пустим!";
         }
         return errors;
     }
@@ -60,23 +50,24 @@ class AddGroupForm extends React.Component {
 
         return (
             <form onSubmit={this.onSubmit}>
-                { errors.global && <Notify text={errors.global}/> }
-                <div className="form__group">
-                    <label htmlFor="groupName" className="form__label">Назва групи:</label>
-                    <input
-                        type="text"
-                        id="groupName"
-                        name="groupName"
-                        className="form__input"
-                        placeholder="Назва групи"
-                        value={data.groupName}
-                        onChange={this.onChange}
-                    />
-                    { errors.groupName && <InlineError text={errors.groupName}/> }
+                <div className="row m-row align-middle">
+                    <div className="column col-lg-6">
+                        <input
+                            type="text"
+                            id="groupName"
+                            name="groupName"
+                            className="form__input"
+                            placeholder="Назва групи"
+                            value={data.groupName}
+                            onChange={this.onChange}
+                        />
+                        { errors.name && <InlineError text={errors.name}/> }
+                    </div>
+                    <div className="column col-lg-6">
+                        <button type="submit" className="btn --blue">Добавити</button>
+                    </div>
                 </div>
-                <button type="submit" className="btn --blue">Добавити</button>
             </form>
-
         );
     }
 }

@@ -4,14 +4,14 @@ import React from 'react';
 
 const GroupList = ({ groups}) => {
 
-    const list = groups.map((group) =>
-        <li key={group.id}>
-            <span>Назва групи: {group.groupName}</span>
+    const list = groups.map((group,i) =>
+        <li key={i} className="group__list-item">
+            <span>{group.groupName}</span>
         </li>
     );
 
     return(
-       <ul>
+       <ul className="group__list">
            {list}
        </ul>
     );
