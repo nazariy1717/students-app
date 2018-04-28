@@ -23,20 +23,21 @@ class GroupPage extends React.Component{
     }
 
     componentDidMount () {
-        console.log('vxcvxc');
-
         api.admin.getGroup()
             .then(res => this.setState({ groups: res.groupsMap }))
-            .catch(res =>
-                console.log(res.body)
-                // this.setState({ errors: err.body })
-            )
+            .catch(err => {
+                console.log(err.response);
+                this.setState({ errors: err.response.data.errors })
+            })
     }
 
     submit = data =>
         this.props.addGroup(data).then(response => alert(`Групу `+ response.groupName+ ' успішно додано!'));
 
+
     render(){
+        const { errors } = this.state;
+
         return(
             <div className="page">
                 <div className="page__sidebar">
@@ -51,8 +52,8 @@ class GroupPage extends React.Component{
 
                     <h2>Список груп</h2>
                     <GroupList groups={this.state.groups}/>
+                    { errors && <div>{errors}</div> }
 
-                    {!! this.errors }
                 </div>
 
 
