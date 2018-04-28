@@ -1,6 +1,6 @@
 
-import { ADMIN_LOGGED_IN,ADMIN_LOGGED_OUT } from '../types'
-import api from '../api';
+import { ADMIN_LOGGED_IN,ADMIN_LOGGED_OUT } from '../../types'
+import api from '../../api';
 
 export const adminLoggedIn = (admin) => ({
     type: ADMIN_LOGGED_IN,

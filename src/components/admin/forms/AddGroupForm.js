@@ -30,18 +30,18 @@ class AddGroupForm extends React.Component {
     onSubmit(e){
         e.preventDefault();
         const errors = this.validate(this.state.data);
-        this.setState({ errors });
         this.setState({
             data: {
                 groupName: ''
-            }
+            },
+            errors: errors
         });
         if(Object.keys(errors).length === 0){
             this.props
                 .submit(this.state.data)
                 .catch(err => {
                     console.log(err);
-                    this.setState({ errors: err.response.data.errors })
+                    this.setState({ errors: err.data.errors })
                 });
         }
     }

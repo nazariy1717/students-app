@@ -3,7 +3,7 @@ import AdminForm from '../forms/AdminForm';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { adminLogin } from '../../../actions/adminAuth';
+import { adminLogin } from '../../../actions/admin/adminAuth';
 
 
 class AdminPage extends React.Component {

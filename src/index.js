@@ -13,7 +13,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import './styles/App.css';
 
 import registerServiceWorker from './registerServiceWorker';
-import { adminLoggedIn } from './actions/adminAuth'
+import { adminLoggedIn } from './actions/admin/adminAuth'
 
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
 

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux';
 
-import { adminLogout } from '../../actions/adminAuth';
+import { adminLogout } from '../../actions/admin/adminAuth';
 
 
 const HomePage = ({ isAdminAuthenticated, adminLogout }) => (
