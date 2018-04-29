@@ -9,7 +9,6 @@ import api from '../../../api';
 import { addGroup }  from '../../../actions/admin/addGroup';
 
 
-
 class GroupPage extends React.Component{
 
     state = {
@@ -44,7 +43,7 @@ class GroupPage extends React.Component{
             this.props.addGroup(data)
                 .then(response => {
                     notify.show(`Групу `+ response.groupName+ ' успішно додано!', 'success' );
-                    let newItem = {_id: response._id, groupName: response.groupName};
+                    let newItem = {id: response._id, groupName: response.groupName};
                     this.setState({
                         groups: [...this.state.groups, newItem],
                         errors: ''
@@ -57,20 +56,20 @@ class GroupPage extends React.Component{
     };
 
     removeGroup(group){
-        console.log(group);
-
-        api.admin.removeGroup(group)
-            .then(res => console.log(res))
-            .catch(err => console.log(err));
 
         const newGroupList = this.state.groups.filter(item =>{
             return item!== group;
         });
-        console.log(newGroupList);
+
         this.setState({ groups: [...newGroupList] });
+
         if(newGroupList.length === 0){
             this.setState({errors: 'Не знайдено жодної групи'});
         }
+
+        api.admin.removeGroup(group)
+            .then(res => notify.show(`Групу `+ res.group.groupName + ' видалено!', 'success' ))
+            .catch(err => console.log(err));
     }
 
     render(){
