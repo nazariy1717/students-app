@@ -43,7 +43,7 @@
     left: 0;
     top: 0;
     bottom: 0;
-    width: 350px;
+    width: 300px;
     background-color: #f3f3f3;
     border-left: 1px solid #dedede;
   }
@@ -52,7 +52,7 @@
     right: 0;
     top: 0;
     bottom: 0;
-    width: calc(100% - 350px);
+    width: calc(100% - 300px);
     padding: 100px 60px;
   }
   &__title{
@@ -119,5 +119,24 @@
     outline: none;
     cursor: pointer;
     border-radius: 3px;
+  }
+}
+
+.sidebar{
+  padding: 100px 60px;
+  &__list{}
+  &__item{
+    display: block;
+    margin-bottom: 15px;
+    a{
+      text-decoration: none;
+      display: block;
+      color: #000;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      &:hover{
+        color: #1678c2;
+      }
+    }
   }
 }

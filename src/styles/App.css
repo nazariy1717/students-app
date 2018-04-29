@@ -588,6 +588,16 @@ h1 {
   color: #000;
   font-family: Lato, sans-serif; }
 
+header {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 45px;
+  z-index: 99;
+  background-color: #f3f3f3;
+  border-bottom: 1px solid #dedede; }
+
 .home {
   position: relative;
   min-height: 100vh; }
@@ -670,7 +680,7 @@ h1 {
     left: 0;
     top: 0;
     bottom: 0;
-    width: 350px;
+    width: 300px;
     background-color: #f3f3f3;
     border-left: 1px solid #dedede; }
   .page__content {
@@ -678,7 +688,7 @@ h1 {
     right: 0;
     top: 0;
     bottom: 0;
-    width: calc(100% - 350px);
+    width: calc(100% - 300px);
     padding: 100px 60px; }
   .page__title {
     margin-bottom: 60px; }
@@ -730,3 +740,17 @@ h1 {
     outline: none;
     cursor: pointer;
     border-radius: 3px; }
+
+.sidebar {
+  padding: 100px 60px; }
+  .sidebar__item {
+    display: block;
+    margin-bottom: 15px; }
+    .sidebar__item a {
+      text-decoration: none;
+      display: block;
+      color: #000;
+      font-weight: bold;
+      transition: all 0.3s ease; }
+      .sidebar__item a:hover {
+        color: #1678c2; }

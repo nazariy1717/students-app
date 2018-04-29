@@ -5,6 +5,7 @@ import { notify } from 'react-notify-toast';
 
 import AddGroup from '../forms/AddGroupForm';
 import GroupList from '../GroupList';
+import Sidebar from '../Sidebar';
 import api from '../../../api';
 import { addGroup }  from '../../../actions/admin/addGroup';
 
@@ -78,6 +79,7 @@ class GroupPage extends React.Component{
         return(
             <div className="page">
                 <div className="page__sidebar">
+                    <Sidebar />
                 </div>
                 <div className="page__content">
                     <h1 className="page__title">Управління групами</h1>

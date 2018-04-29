@@ -1,4 +1,13 @@
-
+header{
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 45px;
+  z-index: 99;
+  background-color: #f3f3f3;
+  border-bottom: 1px solid #dedede;
+}
 .home{
   position: relative;
   min-height: 100vh;
