@@ -692,10 +692,41 @@ h1 {
     margin-bottom: 10px; }
   .group__list {
     list-style-type: none; }
+  .group__list-head {
+    position: relative;
+    padding: 0 45px 0 15px;
+    line-height: 40px;
+    margin-bottom: 5px; }
+    .group__list-head div {
+      display: inline-block;
+      font-weight: bold; }
+    .group__list-head div:nth-child(1) {
+      width: 40%; }
+    .group__list-head div:nth-child(2) {
+      width: 60%; }
   .group__list-item {
-    padding: 0 15px;
+    position: relative;
+    padding: 0 45px 0 15px;
     height: 40px;
     line-height: 40px;
     background-color: #f3f3f3;
     border: 1px solid #dedede;
     margin-bottom: 5px; }
+    .group__list-item div {
+      display: inline-block; }
+    .group__list-item div:nth-child(1) {
+      width: 40%; }
+    .group__list-item div:nth-child(2) {
+      width: 60%; }
+  .group__list-remove {
+    position: absolute;
+    width: 70px;
+    height: 24px;
+    top: 7px;
+    right: 7px;
+    color: #fff;
+    background-color: #e8524f;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    border-radius: 3px; }

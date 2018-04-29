@@ -51,7 +51,7 @@ class GroupPage extends React.Component{
                 })
                 .catch(err => notify.show(err.response.data.errors, 'error'));
         } else{
-            notify.show('dasdas', 'error');
+            notify.show('Вказана група вже існує!', 'error');
         }
     };
 
@@ -81,7 +81,6 @@ class GroupPage extends React.Component{
                 </div>
                 <div className="page__content">
                     <h1 className="page__title">Управління групами</h1>
-
                     <div className="row m-row align-middle">
                         <div className="column ">
                             <h2>Добавити групу</h2>
@@ -90,15 +89,11 @@ class GroupPage extends React.Component{
                             <AddGroup submit={this.submit}/>
                         </div>
                     </div>
-
                     <div className="group">
-                        <span className="group__title">Список груп</span>
                         <GroupList groups={this.state.groups} removeGroup={this.removeGroup.bind(this)}/>
                         { errors && <div style={{ color: '#ae5856' }}>{errors}</div> }
                     </div>
-
                 </div>
-
             </div>
         )
     }

@@ -13,12 +13,21 @@ class GroupList extends React.Component {
     }
 
     render() {
+        console.log(this.props.groups);
         return (
             <ul className="group__list">
+                <li className="group__list-head">
+                    <div>Назва групи:</div>
+                    <div>ID групи:</div>
+                </li>
                 {this.props.groups.map((group, i) => (
                     <li key={i} className="group__list-item">
-                        <span>{group.groupName}</span>
-                        <button onClick={this.removeGroup.bind(this, group)}>Видалити</button>
+                        <div>{group.groupName}</div>
+                        <div>{group.id}</div>
+                        <button
+                            onClick={this.removeGroup.bind(this, group)}
+                            className="group__list-remove"
+                        >Видалити</button>
                     </li>
                 ))}
             </ul>
