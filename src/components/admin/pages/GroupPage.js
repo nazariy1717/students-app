@@ -85,7 +85,7 @@ class GroupPage extends React.Component{
                     <h1 className="page__title">Управління групами</h1>
                     <div className="row m-row align-middle">
                         <div className="column ">
-                            <h2>Добавити групу</h2>
+                            <span className="page__subtitle">Добавити групу</span>
                         </div>
                         <div className="column ">
                             <AddGroup submit={this.submit}/>

@@ -1,21 +1,21 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink  } from 'react-router-dom';
 
 
 const Sidebar = () => (
     <div className="sidebar">
         <ul className="sidebar__list">
             <li className="sidebar__item">
-                <Link to="/admin/groups">Групи</Link>
+                <NavLink to="/admin/groups"  activeStyle={{ color: '#2185d0' }}>Групи</NavLink>
             </li>
             <li className="sidebar__item">
-                <Link to="/admin/students">Студенти</Link>
+                <NavLink to="/admin/students" activeStyle={{ color: '#2185d0' }}>Студенти</NavLink>
             </li>
             <li className="sidebar__item">
-                <Link to="/admin/teachers">Викладачі</Link>
+                <NavLink to="/admin/teachers" activeStyle={{ color: '#2185d0' }}>Викладачі</NavLink>
             </li>
             <li className="sidebar__item">
-                <Link to="/admin/groups">Пари</Link>
+                <NavLink to="/admin/lessons" activeStyle={{ color: '#2185d0' }}>Пари</NavLink>
             </li>
         </ul>
     </div>
