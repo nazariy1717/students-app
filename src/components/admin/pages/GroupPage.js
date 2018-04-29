@@ -20,6 +20,7 @@ class GroupPage extends React.Component{
     constructor(props){
         super(props);
         this.submit =  this.submit.bind(this);
+        this.removeGroup =  this.removeGroup.bind(this);
     }
 
     getGroups(){
@@ -33,20 +34,46 @@ class GroupPage extends React.Component{
     }
 
     submit = data => {
-        this.props.addGroup(data)
-            .then(response => {
-                notify.show(`Групу `+ response.groupName+ ' успішно додано!', 'success' );
-                let newItem = {_id: response._id, groupName: response.groupName};
-                this.setState({
-                    groups: [...this.state.groups, newItem]
-                });
-            })
-            .catch(err => notify.show(err.response.data.errors, 'error'));
+        let exist = 0;
+        this.state.groups.forEach(function(val,index){
+            if(val.groupName === data.groupName){
+                exist = 1;
+            }
+        });
+        if(!exist){
+            this.props.addGroup(data)
+                .then(response => {
+                    notify.show(`Групу `+ response.groupName+ ' успішно додано!', 'success' );
+                    let newItem = {_id: response._id, groupName: response.groupName};
+                    this.setState({
+                        groups: [...this.state.groups, newItem],
+                        errors: ''
+                    });
+                })
+                .catch(err => notify.show(err.response.data.errors, 'error'));
+        } else{
+            notify.show('dasdas', 'error');
+        }
     };
 
+    removeGroup(group){
+        console.log(group);
+
+        api.admin.removeGroup(group)
+            .then(res => console.log(res))
+            .catch(err => console.log(err));
+
+        const newGroupList = this.state.groups.filter(item =>{
+            return item!== group;
+        });
+        console.log(newGroupList);
+        this.setState({ groups: [...newGroupList] });
+        if(newGroupList.length === 0){
+            this.setState({errors: 'Не знайдено жодної групи'});
+        }
+    }
 
     render(){
-        console.log(this.state);
         const { errors } = this.state;
 
         return(
@@ -67,7 +94,7 @@ class GroupPage extends React.Component{
 
                     <div className="group">
                         <span className="group__title">Список груп</span>
-                        <GroupList groups={this.state.groups}/>
+                        <GroupList groups={this.state.groups} removeGroup={this.removeGroup.bind(this)}/>
                         { errors && <div style={{ color: '#ae5856' }}>{errors}</div> }
                     </div>
 
