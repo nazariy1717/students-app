@@ -13,6 +13,7 @@ class StudentsPage extends React.Component{
 
     state = {
         students: [],
+        studentsFiltered: [],
         errors: [],
     };
 
@@ -24,14 +25,16 @@ class StudentsPage extends React.Component{
 
     componentDidMount () {
         api.admin.getStudents()
-            .then(res => this.setState({ students: res.studentsMap }))
+            .then(res => {
+                this.setState({ students: res.studentsMap, studentsFiltered: res.studentsMap});
+                console.log(res.studentsMap);
+            })
             .catch(err => this.setState({ errors: err.response.data.errors }))
     }
 
 
 
     submit = data => {
-
         let exist = 0;
         this.state.students.forEach(function(val,index){
             if(val.login === data.login){
@@ -50,6 +53,7 @@ class StudentsPage extends React.Component{
                     };
                     this.setState({
                         students: [...this.state.students, newItem],
+                        studentsFiltered: [...this.state.studentsFiltered, newItem],
                         errors: ''
                     });
                 })
@@ -57,15 +61,27 @@ class StudentsPage extends React.Component{
         } else{
             notify.show('Студент з таким логіном вже існує!', 'error');
         }
-
-
     };
+
+    handleSearch(event){
+        console.log('state '+ this.state.students);
+
+        const displayedStudents =  this.state.students.filter( el => {
+            return el.name.toLowerCase().indexOf(event.target.value.toLowerCase()) !== -1;
+        });
+        console.log(displayedStudents);
+        this.setState({ studentsFiltered: [...displayedStudents] });
+    }
+
+
 
     removeStudent(student){
         const newStudentsList = this.state.students.filter(item =>{
             return item!== student;
         });
-        this.setState({ students: [...newStudentsList] });
+        this.setState({ students: [...newStudentsList],studentsFiltered: [...newStudentsList] });
+        console.log('state '+ this.state.students);
+
         if(newStudentsList.length === 0){
             this.setState({errors: 'Не знайдено жодного студента'});
         }
@@ -90,7 +106,8 @@ class StudentsPage extends React.Component{
                         </div>
                         <div className="column col-xs-12">
                             <span className="page__subtitle --modifier">Пошук</span>
-                            <StudentsList students={this.state.students} removeStudent={this.removeStudent.bind(this)}/>
+                            <input type="text" className="search-field" onChange={this.handleSearch.bind(this)}/>
+                            <StudentsList students={this.state.studentsFiltered} removeStudent={this.removeStudent.bind(this)}/>
                             { errors && <div style={{ color: '#ae5856' }}>{errors}</div> }
                         </div>
                     </div>
