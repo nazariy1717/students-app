@@ -747,6 +747,46 @@ header {
     cursor: pointer;
     border-radius: 3px; }
 
+.student {
+  margin: 50px 0; }
+  .student__title {
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px; }
+  .student__list {
+    list-style-type: none; }
+  .student__list-head {
+    position: relative;
+    padding: 0 45px 0 15px;
+    line-height: 40px;
+    margin-bottom: 5px; }
+    .student__list-head div span {
+      font-size: 13px;
+      font-weight: bold; }
+  .student__list-item {
+    position: relative;
+    padding: 0 45px 0 15px;
+    height: 40px;
+    line-height: 40px;
+    background-color: #f3f3f3;
+    border: 1px solid #dedede;
+    margin-bottom: 5px; }
+    .student__list-item div span {
+      font-size: 13px; }
+  .student__list-remove {
+    position: absolute;
+    width: 70px;
+    height: 24px;
+    top: 7px;
+    right: 7px;
+    color: #fff;
+    background-color: #e8524f;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    border-radius: 3px; }
+
 .sidebar {
   padding: 100px 60px; }
   .sidebar__item {

@@ -131,6 +131,62 @@
   }
 }
 
+
+
+.student{
+  margin: 50px 0;
+  &__title{
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  &__list{
+    list-style-type: none;
+  }
+  &__list-head{
+    position: relative;
+    padding: 0 45px 0 15px;
+    line-height: 40px;
+    margin-bottom: 5px;
+    div{
+      span{
+        font-size: 13px;
+        font-weight: bold;
+      }
+    }
+  }
+  &__list-item{
+    position: relative;
+    padding: 0 45px 0 15px;
+    height: 40px;
+    line-height: 40px;
+    background-color: #f3f3f3;
+    border: 1px solid #dedede;
+    margin-bottom: 5px;
+    div{
+      span{
+        font-size: 13px;
+      }
+    }
+  }
+  &__list-remove{
+    position: absolute;
+    width: 70px;
+    height: 24px;
+    top: 7px;
+    right: 7px;
+    color: #fff;
+    background-color: #e8524f;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    border-radius: 3px;
+  }
+}
+
+
+
 .sidebar{
   padding: 100px 60px;
   &__list{}
