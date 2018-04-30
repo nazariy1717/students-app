@@ -6,6 +6,7 @@ export default {
         addGroup: (data) => axios.post('/api/addGroup',{data}).then(res => res.data),
         getGroup: () => axios.get('/api/getGroup').then(res => res.data),
         removeGroup: (group) => axios.post('/api/removeGroup',{group}).then(res => res.data),
+        addStudent: (student) => axios.post('/api/addStudent',{student}).then(res => res.data),
     },
     user: {
         login: (credentials) => axios.post('/api/auth',{credentials}).then(res => res.data.user)

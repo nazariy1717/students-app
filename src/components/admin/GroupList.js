@@ -20,7 +20,7 @@ class GroupList extends React.Component {
                     <div>Назва групи:</div>
                     <div>ID групи:</div>
                 </li>
-                {this.props.groups.map((group, i) => (
+                {this.props.groups.slice(0).reverse().map((group, i) => (
                     <li key={i} className="group__list-item">
                         <div>{group.groupName}</div>
                         <div>{group.id}</div>

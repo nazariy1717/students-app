@@ -14,7 +14,6 @@ export const adminLoggedOut = () => ({
 
 export const adminLogin = credentials => dispatch =>
     api.admin.login(credentials).then(admin =>{
-        console.log(admin);
         localStorage.adminJWT = admin.token;
         dispatch(adminLoggedIn(admin));
     });
