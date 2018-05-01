@@ -30,6 +30,17 @@ class AddTeacherForm extends React.Component {
 
     onSubmit(e){
         e.preventDefault();
+        const errors = this.validate(this.state.data);
+        this.setState({ errors });
+        if(Object.keys(errors).length === 0){
+            this.props.submit(this.state.data)
+        }
+        this.setState({ data: {
+            login: '',
+            password: '',
+            name: ''
+        }
+        });
     }
 
     validate(data){
@@ -41,13 +52,11 @@ class AddTeacherForm extends React.Component {
     }
 
     render() {
-
         const { data, errors } = this.state;
-
         return (
             <form onSubmit={this.onSubmit}>
                 <div className="form__group">
-                    <label htmlFor="login" className="form__label">ПІБ:</label>
+                    <label htmlFor="name" className="form__label">ПІБ:</label>
                     <input
                         type="text"
                         id="name"

@@ -21,14 +21,12 @@ class StudentsPage extends React.Component{
         super(props);
         this.submit = this.submit.bind(this);
         this.removeStudent = this.removeStudent.bind(this);
+        this.handleSearch = this.handleSearch.bind(this);
     }
 
     componentDidMount () {
         api.admin.getStudents()
-            .then(res => {
-                this.setState({ students: res.studentsMap, studentsFiltered: res.studentsMap});
-                console.log(res.studentsMap);
-            })
+            .then(res => this.setState({ students: res.studentsMap, studentsFiltered: res.studentsMap}))
             .catch(err => this.setState({ errors: err.response.data.errors }))
     }
 
@@ -81,7 +79,6 @@ class StudentsPage extends React.Component{
             return item!== student;
         });
         this.setState({ students: [...newStudentsList],studentsFiltered: [...newStudentsList] });
-        console.log('state '+ this.state.students);
 
         if(newStudentsList.length === 0){
             this.setState({errors: 'Не знайдено жодного студента'});

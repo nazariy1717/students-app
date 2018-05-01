@@ -12,8 +12,12 @@ export default {
         /* Student */
         addStudent: (student) => axios.post('/api/addStudent',{student}).then(res => res.data),
         getStudents: () => axios.get('/api/getStudents').then(res => res.data),
-        removeStudent: (student) => axios.post('/api/removeStudent',{student}).then(res => res.data)
+        removeStudent: (student) => axios.post('/api/removeStudent',{student}).then(res => res.data),
 
+        /* Teacher */
+        addTeacher: (teacher) => axios.post('/api/addTeacher',{teacher}).then(res => res.data),
+        getTeachers: () => axios.get('/api/getTeachers').then(res => res.data),
+        removeTeacher: (teacher) => axios.post('/api/removeTeacher',{teacher}).then(res => res.data),
 
 
     },
