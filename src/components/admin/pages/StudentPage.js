@@ -64,15 +64,16 @@ class StudentsPage extends React.Component{
     };
 
     handleSearch(event){
-        console.log('state '+ this.state.students);
-
         const displayedStudents =  this.state.students.filter( el => {
             return el.name.toLowerCase().indexOf(event.target.value.toLowerCase()) !== -1;
         });
-        console.log(displayedStudents);
-        this.setState({ studentsFiltered: [...displayedStudents] });
+        if(displayedStudents.length === 0){
+            this.setState({ errors: 'Не знайдено жодного студента' });
+        } else{
+            this.setState({ errors: '' });
+        }
+        this.setState({ studentsFiltered: [...displayedStudents]});
     }
-
 
 
     removeStudent(student){
@@ -105,10 +106,18 @@ class StudentsPage extends React.Component{
                             <AddStudentForm submit={this.submit} />
                         </div>
                         <div className="column col-xs-12">
-                            <span className="page__subtitle --modifier">Пошук</span>
-                            <input type="text" className="search-field" onChange={this.handleSearch.bind(this)}/>
-                            <StudentsList students={this.state.studentsFiltered} removeStudent={this.removeStudent.bind(this)}/>
-                            { errors && <div style={{ color: '#ae5856' }}>{errors}</div> }
+                            <div className="student">
+                                <div className="row m-row align-middle form__group">
+                                    <div className="column">
+                                        <span className="page__subtitle ">Пошук</span>
+                                    </div>
+                                    <div className="column">
+                                        <input type="text" className="student__search form__input" onChange={this.handleSearch.bind(this)}/>
+                                    </div>
+                                </div>
+                                <StudentsList students={this.state.studentsFiltered} removeStudent={this.removeStudent.bind(this)}/>
+                                { errors && <div style={{ color: '#ae5856' }}>{errors}</div> }
+                            </div>
                         </div>
                     </div>
 
