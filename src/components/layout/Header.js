@@ -6,9 +6,10 @@ import { adminLogout } from '../../actions/admin/adminAuth';
 
 const header = ({ isAdminAuthenticated, adminLogout }) => (
 
-    <header className="header">
-        { isAdminAuthenticated ? <button onClick={ () => adminLogout()}>Вийти</button> : ''}
-    </header>
+    <div className="header">
+        <span className="header__txt">Ви увійшли як адміністратор.</span>
+        { isAdminAuthenticated ? <button className="header__btn" onClick={ () => adminLogout()}>Вийти</button> : ''}
+    </div>
 );
 
 header.protoTypes = {

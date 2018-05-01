@@ -13,13 +13,13 @@ import AdminRoute from "./components/routes/AdminRoute";
 
 
 import Notifications from 'react-notify-toast';
-import header from './components/layout/header';
+import Header from './components/layout/Header';
 
 
 
 const App = ({ location}) =>(
     <div className="page-container">
-        <header />
+        <Header />
 
         <Route path="/" exact component={HomePage} />
         <Route path="/admin" exact component={AdminPage} />
