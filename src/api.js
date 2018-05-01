@@ -21,6 +21,11 @@ export default {
 
 
     },
+    student: {
+        login: (credentials) => axios.post('/api/student-auth',{credentials}).then(res => res.data)
+    },
+
+
     user: {
         login: (credentials) => axios.post('/api/auth',{credentials}).then(res => res.data.user)
     }

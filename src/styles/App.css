@@ -602,6 +602,8 @@ h1 {
     right: 120px;
     top: 10px;
     font-size: 14px; }
+    .header__txt a {
+      color: #222; }
   .header__btn {
     position: absolute;
     top: 10px;
@@ -650,11 +652,12 @@ h1 {
       margin-bottom: 30px; }
     .home__content p {
       margin-bottom: 15px; }
-    .home__content button {
+    .home__content a {
+      text-decoration: none;
       max-width: 175px;
       display: inline-block;
       margin: 0 15px; }
-      .home__content button + .home__content button {
+      .home__content a + .home__content a {
         margin-left: 30px; }
 
 .InlineError {
@@ -819,3 +822,8 @@ h1 {
       transition: all 0.3s ease; }
       .sidebar__item a:hover {
         color: #1678c2; }
+
+.student-page {
+  height: 100vh; }
+  .student-page h1 {
+    text-align: center; }

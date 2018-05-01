@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const HomePage = () => (
 
@@ -10,8 +11,8 @@ const HomePage = () => (
                     <div className="home__content">
                         <h1>Система моніторингу відвідування студентів занять </h1>
                         <p>Увійдіть в систему щоб розпочати роботу</p>
-                        <button type="button" className="btn --blue">Я студент</button>
-                        <button type="button" className="btn --blue">Я викладач</button>
+                        <Link to="/student" className="btn --blue">Я студент</Link>
+                        <Link to="/teacher" className="btn --blue">Я викладач</Link>
                     </div>
                 </div>
             </div>
@@ -19,7 +20,5 @@ const HomePage = () => (
     </div>
 
 );
-
-
 
 export default HomePage;

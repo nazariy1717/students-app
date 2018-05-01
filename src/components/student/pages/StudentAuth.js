@@ -2,12 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
+import StudentForm from '../forms/StudentForm';
+import { studentLogin } from '../../../actions/student/studentAuth';
 
-import AdminForm from '../forms/AdminForm';
-import { adminLogin } from '../../../actions/admin/adminAuth';
 
 
-class AdminPage extends React.Component {
+class StudentAuth extends React.Component {
 
     constructor(props) {
         super(props);
@@ -15,7 +15,8 @@ class AdminPage extends React.Component {
     }
 
     submit = data =>
-        this.props.adminLogin(data).then(() => this.props.history.push('/admin/groups'));
+        this.props.studentLogin(data).then(() =>
+            this.props.history.push('/student/panel'));
 
     render() {
         return (
@@ -23,8 +24,8 @@ class AdminPage extends React.Component {
                 <div className="login-page__cell">
                     <div className="login-page__content">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Nulp_logo_ukr.jpg/280px-Nulp_logo_ukr.jpg" alt="" className="login-page__img"/>
-                        <span className="login-page__title">Вхід в систему</span>
-                        <AdminForm submit={this.submit} />
+                        <span className="login-page__title">Вхід в систему(Студент)</span>
+                        <StudentForm submit={this.submit} />
                     </div>
                 </div>
             </div>
@@ -33,12 +34,12 @@ class AdminPage extends React.Component {
 }
 
 
-AdminPage.propTypes = {
+StudentAuth.propTypes = {
     history: PropTypes.shape({
         push: PropTypes.func.isRequired
     }).isRequired,
-    adminLogin: PropTypes.func.isRequired
+    studentLogin: PropTypes.func.isRequired
 };
 
 
-export default connect(null, {adminLogin})(AdminPage);
+export default connect(null, {studentLogin})(StudentAuth);

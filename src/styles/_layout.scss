@@ -12,6 +12,9 @@
     right: 120px;
     top: 10px;
     font-size: 14px;
+    a{
+      color: #222;
+    }
   }
   &__btn{
     position: absolute;
@@ -30,6 +33,7 @@
     }
   }
 }
+
 .home{
   position: relative;
   min-height: 100vh;
@@ -68,7 +72,8 @@
     p{
       margin-bottom: 15px;
     }
-    button{
+    a{
+      text-decoration: none;
       max-width: 175px;
       display: inline-block;
       margin: 0 15px;
