@@ -21,7 +21,8 @@ const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk
 if(localStorage.adminJWT){
     const admin = { token: localStorage.adminJWT};
     store.dispatch(adminLoggedIn(admin));
-} else if(localStorage.studentJWT){
+}
+else if(localStorage.studentJWT){
     const student = { token: localStorage.studentJWT};
     store.dispatch(studentLoggedIn(student));
 }
