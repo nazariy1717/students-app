@@ -19,12 +19,15 @@ export default {
         getTeachers: () => axios.get('/api/getTeachers').then(res => res.data),
         removeTeacher: (teacher) => axios.post('/api/removeTeacher',{teacher}).then(res => res.data),
 
-
     },
+
     student: {
         login: (credentials) => axios.post('/api/student-auth',{credentials}).then(res => res.data)
     },
 
+    teacher: {
+        login: (credentials) => axios.post('/api/teacher-auth',{credentials}).then(res => res.data)
+    },
 
     user: {
         login: (credentials) => axios.post('/api/auth',{credentials}).then(res => res.data.user)

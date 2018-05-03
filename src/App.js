@@ -14,9 +14,15 @@ import TeacherPage from "./components/admin/pages/TeacherPage";
 import StudentAuth from "./components/student/pages/StudentAuth";
 import StudentPanel from "./components/student/pages/StudentPanel";
 
+/* teacher pages*/
+import TeacherAuth from "./components/teacher/pages/TeacherAuth";
+import TeacherPanel from "./components/teacher/pages/TeacherPanel";
+
 /*Routes*/
 import AdminRoute from "./components/routes/AdminRoute";
 import StudentRoute from "./components/routes/StudentRoute";
+import TeacherRoute from "./components/routes/TeacherRoute";
+
 /*Notifications*/
 import Notifications from 'react-notify-toast';
 import Header from './components/layout/Header';
@@ -30,6 +36,8 @@ const App = ({ location}) =>(
         <Route path="/" exact component={HomePage} />
         <Route path="/admin" exact component={AdminPage} />
         <Route path="/student" exact component={StudentAuth} />
+        <Route path="/teacher" exact component={TeacherAuth} />
+
 
         <AdminRoute path="/admin/groups" location={location} exact component={GroupPage} />
         <AdminRoute path="/admin/students" location={location} exact component={StudentPage} />
@@ -38,6 +46,8 @@ const App = ({ location}) =>(
 
         <StudentRoute path="/student/panel" location={location} exact component={StudentPanel} />
 
+
+        <TeacherRoute path="/teacher/panel" location={location} exact component={TeacherPanel} />
 
 
 
