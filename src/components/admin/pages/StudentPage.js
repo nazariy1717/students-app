@@ -22,12 +22,17 @@ class StudentsPage extends React.Component{
         this.submit = this.submit.bind(this);
         this.removeStudent = this.removeStudent.bind(this);
         this.handleSearch = this.handleSearch.bind(this);
+        this.getStudents = this.getStudents.bind(this);
     }
 
-    componentDidMount () {
+    getStudents(){
         api.admin.getStudents()
             .then(res => this.setState({ students: res.studentsMap, studentsFiltered: res.studentsMap}))
             .catch(err => this.setState({ errors: err.response.data.errors }))
+    }
+
+    componentDidMount () {
+        this.getStudents();
     }
 
 
@@ -44,7 +49,7 @@ class StudentsPage extends React.Component{
                 .then(res => {
                     notify.show(`Студента успішно добавлено!`, 'success');
                     let newItem =  {
-                        groupId: res.response.groupId,
+                        groupName: res.response.groupName,
                         login: res.response.login,
                         name: res.response.name,
                         password: res.response.password,
@@ -73,7 +78,6 @@ class StudentsPage extends React.Component{
         this.setState({ studentsFiltered: [...displayedStudents]});
     }
 
-
     removeStudent(student){
         const newStudentsList = this.state.students.filter(item =>{
             return item!== student;
@@ -88,7 +92,10 @@ class StudentsPage extends React.Component{
             .catch(err => console.log(err));
     }
 
+
+
     render(){
+        console.log(this.state.students);
         const { errors } = this.state;
         return(
             <div className="page">

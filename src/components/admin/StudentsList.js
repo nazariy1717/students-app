@@ -20,7 +20,7 @@ class StudentsList extends React.Component {
                     <div className="column col-lg-4"><span>Ім'я:</span></div>
                     <div className="column col-lg-2"><span>Логін:</span></div>
                     <div className="column col-lg-3"><span>Пароль:</span></div>
-                    <div className="column col-lg-3"><span>ID групи:</span></div>
+                    <div className="column col-lg-3"><span>Група:</span></div>
                 </li>
                 {this.props.students.slice(0).reverse().map((student, i) => (
                     <li key={i} className="student__list-item row m-row">
@@ -34,7 +34,7 @@ class StudentsList extends React.Component {
                             <span>{student.password}</span>
                         </div>
                         <div className="column col-lg-3">
-                            <span>{student.groupId}</span>
+                            <span>{student.groupName}</span>
                         </div>
                         <button onClick={this.removeStudent.bind(this, student)}
                             className="student__list-remove">Видалити</button>

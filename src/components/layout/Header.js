@@ -6,7 +6,7 @@ import { adminLogout } from '../../actions/admin/adminAuth';
 import { studentLogout } from '../../actions/student/studentAuth';
 
 
-const header = ({ isAdminAuthenticated, adminLogout }) => (
+const header = ({ isAdminAuthenticated, adminLogout, isStudentAuthenticated,studentLogout }) => (
 
     <div className="header">
 
@@ -31,5 +31,5 @@ function mapStateToProps(state){
     }
 }
 
-export default connect(mapStateToProps, {adminLogout})(header);
+export default connect(mapStateToProps, {adminLogout,studentLogout})(header);
 

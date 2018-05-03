@@ -572,12 +572,27 @@ h1 {
   position: relative;
   margin-bottom: 15px; }
 
+.form__group-30 {
+  position: relative;
+  margin-bottom: 30px; }
+
 .form__label {
   display: block;
   font-size: 14px;
   line-height: 24px; }
 
 .form__input {
+  width: 100%;
+  max-width: 300px;
+  height: 40px;
+  border: 1px solid #dedede;
+  outline: none;
+  font-size: 14px;
+  padding: 0 10px;
+  color: #000;
+  font-family: Lato, sans-serif; }
+
+.form__select {
   width: 100%;
   max-width: 300px;
   height: 40px;

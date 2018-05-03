@@ -13,7 +13,6 @@ class GroupList extends React.Component {
     }
 
     render() {
-        console.log(this.props.groups);
         return (
             <ul className="group__list">
                 <li className="group__list-head">
