@@ -13,7 +13,12 @@ class StudentsList extends React.Component {
     }
 
 
+
+
     render() {
+        // console.log(this.props.students);
+
+
         return (
             <ul className="student__list">
                 <li className="student__list-head row m-row">

@@ -44,12 +44,15 @@ class StudentsPage extends React.Component{
                 exist = 1;
             }
         });
+        console.log(data);
+
         if(!exist){
             this.props.addStudent(data)
                 .then(res => {
                     notify.show(`Студента успішно добавлено!`, 'success');
+                    console.log(res);
                     let newItem =  {
-                        groupName: res.response.groupName,
+                        groupId: res.response.groupId,
                         login: res.response.login,
                         name: res.response.name,
                         password: res.response.password,
@@ -95,7 +98,6 @@ class StudentsPage extends React.Component{
 
 
     render(){
-        console.log(this.state.students);
         const { errors } = this.state;
         return(
             <div className="page">

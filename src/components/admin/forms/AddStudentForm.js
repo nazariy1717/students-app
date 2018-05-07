@@ -12,7 +12,7 @@ class AddStudentForm extends React.Component {
             login: '',
             password: '',
             name: '',
-            groupName: '',
+            groupId: '',
         },
         groups: [],
         errors: []
@@ -63,12 +63,11 @@ class AddStudentForm extends React.Component {
         if(!data.login){ errors.login = "Поле не може бути пустим!"; }
         if(!data.password){ errors.password = "Поле не може бути пустим!"; }
         if(!data.name){ errors.name = "Поле не може бути пустим!"; }
-        if(!data.groupName){ errors.groupName = "Поле не може бути пустим!"; }
+        if(!data.groupId){ errors.groupId = "Поле не може бути пустим!"; }
         return errors;
     }
 
     render() {
-
 
         const { data, errors } = this.state;
 
@@ -116,13 +115,13 @@ class AddStudentForm extends React.Component {
 
                 <div className="form__group-30">
                     <label htmlFor="groupId" className="form__label">Група:</label>
-                    <select name="groupName" id="groupName" className="form__select" value={data.groupName} onChange={this.onChange}>
+                    <select name="groupId" id="groupId" className="form__select" value={data.groupId} onChange={this.onChange}>
                         <option defaultValue="0">Виберіть групу</option>
                         {this.state.groups.map((group, i) => (
-                            <option value={group.groupName} key={i}>{group.groupName}</option>
+                            <option value={group.id} key={i}>{group.groupName}</option>
                         ))}
                     </select>
-                    { errors.groupName && <InlineError text={errors.groupName}/> }
+                    { errors.groupId && <InlineError text={errors.groupId}/> }
                 </div>
                 <div className="form__group">
                     <button type="submit" className="btn --blue">Добавити</button>
