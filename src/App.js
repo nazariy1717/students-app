@@ -9,6 +9,7 @@ import AdminPage from "./components/admin/pages/AdminPage";
 import GroupPage from "./components/admin/pages/GroupPage";
 import StudentPage from "./components/admin/pages/StudentPage";
 import TeacherPage from "./components/admin/pages/TeacherPage";
+import LessonPage from "./components/admin/pages/LessonPage";
 
 /* student pages*/
 import StudentAuth from "./components/student/pages/StudentAuth";
@@ -42,6 +43,7 @@ const App = ({ location}) =>(
         <AdminRoute path="/admin/groups" location={location} exact component={GroupPage} />
         <AdminRoute path="/admin/students" location={location} exact component={StudentPage} />
         <AdminRoute path="/admin/teachers" location={location} exact component={TeacherPage} />
+        <AdminRoute path="/admin/lessons" location={location} exact component={LessonPage} />
 
 
         <StudentRoute path="/student/panel" location={location} exact component={StudentPanel} />

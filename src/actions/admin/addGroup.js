@@ -9,5 +9,4 @@ export const adminAddedGroup = () => ({
 export const addGroup = data => dispatch =>
     api.admin.addGroup(data).then(
         dispatch(adminAddedGroup())
-        // this.setState({ tableData: response.data });
     );
