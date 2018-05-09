@@ -22,6 +22,18 @@ class LessonPage extends React.Component{
         this.submit = this.submit.bind(this);
     }
 
+    getLesson(){
+        api.admin.getLesson()
+            .then(res => this.setState({ lessons: res.studentsMap, lessonsFiltered: res.studentsMap}))
+            .catch(err => this.setState({ errors: err.response.data.errors }))
+    }
+
+    componentDidMount () {
+        this.getLesson();
+    }
+
+
+
     submit = data => {
 
         console.log(data);
