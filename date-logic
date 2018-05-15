@@ -1,0 +1,72 @@
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.1/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.1/locale/uk.js"></script>
+
+<script type="text/javascript">
+		
+</script>
+<script>
+    var month =  moment().month(8);
+	var arr = [];
+
+	const startOfMonth = month.clone().startOf('month');
+	const endOfMonth   = month.clone().endOf('month');
+
+	console.log(startOfMonth);
+	console.log(endOfMonth);
+
+	const lessonSchedule = {
+		1: {
+			hours: 8,
+			minutes: 30
+		},
+		2: {
+			hours: 10,
+			minutes: 20
+		},
+		3: {
+			hours: 12,
+			minutes: 10
+		},
+		4: {
+			hours: 14,
+			minutes: 15
+		}
+	};
+	console.log(lessonSchedule);
+
+
+
+	function setLessonsDate(lessonNumber, dayOfWeek){
+
+		let numberOfLesson = lessonSchedule[lessonNumber];
+
+		let tmp = startOfMonth.clone().day(dayOfWeek).hour(numberOfLesson.hours).minutes(numberOfLesson.minutes);
+		console.log(tmp);
+
+		if(tmp.isBefore(startOfMonth)){
+		 	tmp.add(7, 'days');
+		}
+
+		while(  tmp.isBefore(endOfMonth) ){
+		  console.log(tmp.format('DD-MM-YYYY hh:mm')); 
+		  arr.push(tmp.format('DD-MM-YYYY hh:mm'));
+		  tmp.add(7, 'days');
+		}
+
+		console.log(arr);
+ 
+	}
+
+
+	setLessonsDate(2, 1);
+
+
+
+
+
+
+</script>
