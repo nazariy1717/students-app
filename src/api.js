@@ -19,6 +19,11 @@ export default {
         getTeachers: () => axios.get('/api/getTeachers').then(res => res.data),
         removeTeacher: (teacher) => axios.post('/api/removeTeacher',{teacher}).then(res => res.data),
 
+        /* Lesson */
+        addLesson: (lesson) => axios.post('/api/addLesson',{lesson}).then(res => res.data),
+        getLesson: () => axios.get('/api/getLesson').then(res => res.data),
+        removeLesson: (lesson) => axios.post('/api/removeLesson',{lesson}).then(res => res.data),
+
     },
 
     student: {
