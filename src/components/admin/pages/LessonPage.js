@@ -55,7 +55,10 @@ class LessonPage extends React.Component{
                     errors: ''
                 });
             })
-            .catch(err => notify.show(err.response.data.errors.login, 'error'));
+            .catch(err => {
+                console.log(err);
+                // notify.show(err.response.data.errors, 'error');
+            });
 
     };
 
