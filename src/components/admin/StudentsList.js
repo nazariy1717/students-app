@@ -12,12 +12,7 @@ class StudentsList extends React.Component {
         this.props.removeStudent(id);
     }
 
-
-
-
     render() {
-        // console.log(this.props.students);
-
 
         return (
             <ul className="student__list">
@@ -51,11 +46,9 @@ class StudentsList extends React.Component {
 }
 
 
-
 StudentsList.propTypes = {
     removeStudent: PropTypes.func.isRequired,
     students: PropTypes.array.isRequired
 };
-
 
 export default StudentsList;

@@ -159,11 +159,11 @@
   &__list-item{
     position: relative;
     padding: 0 45px 0 15px;
-    height: 40px;
     line-height: 40px;
     background-color: #f3f3f3;
     border: 1px solid #dedede;
     margin-bottom: 5px;
+
     div{
       span{
         font-size: 13px;
@@ -185,6 +185,12 @@
   }
 }
 
+.txt-items{
+  display: inline-block;
+  & + & {
+    margin-left: 15px;
+  }
+}
 
 
 .sidebar{

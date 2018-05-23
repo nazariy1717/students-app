@@ -804,7 +804,6 @@ h1 {
   .student__list-item {
     position: relative;
     padding: 0 45px 0 15px;
-    height: 40px;
     line-height: 40px;
     background-color: #f3f3f3;
     border: 1px solid #dedede;
@@ -823,6 +822,11 @@ h1 {
     outline: none;
     cursor: pointer;
     border-radius: 3px; }
+
+.txt-items {
+  display: inline-block; }
+  .txt-items + .txt-items {
+    margin-left: 15px; }
 
 .sidebar {
   padding: 100px 60px; }

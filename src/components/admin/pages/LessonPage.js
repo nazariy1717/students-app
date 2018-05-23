@@ -8,6 +8,9 @@ import Sidebar from '../Sidebar';
 import AddLessonForm from '../forms/AddLessonForm';
 import { addLesson } from '../../../actions/admin/addLesson';
 
+import LessonsList from '../LessonsList';
+
+
 
 class LessonPage extends React.Component{
 
@@ -20,19 +23,20 @@ class LessonPage extends React.Component{
     constructor(props){
         super(props);
         this.submit = this.submit.bind(this);
+        this.getLesson = this.getLesson.bind(this);
+        this.handleSearch = this.handleSearch.bind(this);
+        this.removeLesson = this.removeLesson.bind(this);
     }
 
     getLesson(){
         api.admin.getLesson()
-            .then(res => this.setState({ lessons: res.studentsMap, lessonsFiltered: res.studentsMap}))
+            .then(res => this.setState({ lessons: res.lessonsMap, lessonsFiltered: res.lessonsMap}))
             .catch(err => this.setState({ errors: err.response.data.errors }))
     }
 
     componentDidMount () {
         this.getLesson();
     }
-
-
 
     submit = data => {
 
@@ -62,6 +66,34 @@ class LessonPage extends React.Component{
 
     };
 
+    handleSearch(event){
+        const displayedLessons =  this.state.lessons.filter( el => {
+            return el.name.toLowerCase().indexOf(event.target.value.toLowerCase()) !== -1;
+        });
+        if(displayedLessons.length === 0){
+            this.setState({ errors: 'Не знайдено жодної пари' });
+        } else{
+            this.setState({ errors: '' });
+        }
+        this.setState({ lessonsFiltered: [...displayedLessons]});
+    }
+
+    removeLesson(lesson){
+        const newLessonsList = this.state.lessons.filter(item =>{
+            return item!== lesson;
+        });
+        this.setState({ lessons: [...newLessonsList],lessonsFiltered: [...newLessonsList] });
+
+        if(newLessonsList.length === 0){
+            this.setState({errors: 'Не знайдено жодної пари'});
+        }
+        api.admin.removeLesson(lesson)
+            .then(res => notify.show('Пару видалено!', 'success' ))
+            .catch(err => console.log(err));
+    }
+
+
+
     render(){
         const { errors } = this.state;
         return(
@@ -83,8 +115,11 @@ class LessonPage extends React.Component{
                                         <span className="page__subtitle ">Пошук</span>
                                     </div>
                                     <div className="column">
+                                        <input type="text" className="student__search form__input" onChange={this.handleSearch.bind(this)}/>
                                     </div>
                                 </div>
+                                <LessonsList lessons={this.state.lessonsFiltered} removeLesson={this.removeLesson.bind(this)}/>
+                                { errors && <div style={{ color: '#ae5856' }}>{errors}</div> }
                             </div>
                         </div>
                     </div>
