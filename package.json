@@ -36,6 +36,6 @@
   "homepage": "https://github.com/nazariy1717/students-app#readme",
   "devDependencies": {},
   "proxy": {
-    "/api": { "target": "http://localhost:8080", "secure": false }
+    "/api": { "target": "http://localhost:5001", "secure": false }
   }
 }

@@ -54,11 +54,8 @@ class AdminForm extends React.Component {
     }
 
     render() {
-
         const { data, errors } = this.state;
-
         return (
-
             <form onSubmit={this.onSubmit}>
                 { errors.global && <Notify text={errors.global}/> }
                 <div className="form__group">
@@ -89,7 +86,6 @@ class AdminForm extends React.Component {
                 </div>
                 <button type="submit" className="btn --blue">Увійти</button>
             </form>
-
         );
     }
 }
