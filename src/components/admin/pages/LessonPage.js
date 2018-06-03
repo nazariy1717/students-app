@@ -41,7 +41,7 @@ class LessonPage extends React.Component{
     submit = data => {
 
         console.log(data);
-
+ 
         this.props.addLesson(data)
             .then(res => {
                 notify.show(`Пару успішно добавлено!`, 'success');
