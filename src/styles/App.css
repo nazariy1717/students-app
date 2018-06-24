@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Lato");
 * {
   margin: 0;
@@ -603,6 +604,78 @@ h1 {
   color: #000;
   font-family: Lato, sans-serif; }
 
+.checkbox {
+  position: relative; }
+  .checkbox.--modifier {
+    margin-bottom: 20px; }
+  .checkbox label {
+    display: inline-block;
+    opacity: 0.87;
+    color: black;
+    font-family: 'Open Sans',sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    user-select: none; }
+    .checkbox label span {
+      color: var(--col-blue); }
+    .checkbox label a {
+      text-decoration: underline;
+      color: var(--col-blue); }
+
+[type="checkbox"]:not(:checked),
+[type="checkbox"]:checked {
+  position: absolute;
+  left: -9999px; }
+
+[type="checkbox"]:not(:checked) + label,
+[type="checkbox"]:checked + label {
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer; }
+
+[type="checkbox"]:not(:checked) + label:before,
+[type="checkbox"]:checked + label:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 1px;
+  width: 15px;
+  height: 15px;
+  border: 1px solid rgba(0, 0, 0, 0.54);
+  border-radius: 2px;
+  background: #fff; }
+
+[type="checkbox"]:checked + label:after {
+  content: "н";
+  position: absolute;
+  top: -2px;
+  left: 4px;
+  color: var(--col-blue);
+  font-size: 15px;
+  font-weight: bold;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out; }
+
+[type="checkbox"]:not(:checked) + label:after {
+  opacity: 0;
+  transform: scale(0); }
+
+[type="checkbox"]:checked + label:after {
+  opacity: 1;
+  transform: scale(1); }
+
+[type="checkbox"]:disabled:not(:checked) + label:before,
+[type="checkbox"]:disabled:checked + label:before {
+  box-shadow: none;
+  border-color: #d0d0d0;
+  background-color: #d0d0d0; }
+
+[type="checkbox"]:disabled:checked + label:after {
+  color: #fff; }
+
 .header {
   position: absolute;
   left: 0;
@@ -860,6 +933,9 @@ h1 {
     max-width: 1200px;
     padding: 0 15px;
     margin: auto; }
+    .panel-page__content h2 {
+      text-align: center;
+      margin: 45px 0; }
   .panel-page__column {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 20%;
@@ -870,8 +946,9 @@ h1 {
 .schedule {
   border: 1px solid #dedede; }
   .schedule__top {
-    background-color: #f3f3f3;
+    background-color: #2185d0;
     padding: 5px;
+    color: #fff;
     text-align: center; }
     .schedule__top span {
       font-weight: bold; }
@@ -880,3 +957,15 @@ h1 {
     border-bottom: 1px solid #dedede; }
     .schedule__row span {
       display: block; }
+
+.schedule-table table {
+  width: 550px;
+  border: 1px solid #dedede;
+  margin-bottom: 30px; }
+  .schedule-table table th, .schedule-table table td {
+    text-align: left;
+    padding: 5px;
+    border: 1px solid #dedede; }
+
+.schedule-table span {
+  display: block; }

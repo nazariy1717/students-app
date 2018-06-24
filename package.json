@@ -38,9 +38,7 @@
   "proxy": {
     "/api/*": {
       "target":  "http://localhost:8080",
-      "changeOrigin": true,
-      "secure": false,
-      "ignorePath": true
+      "secure": false
     }
   }
 }

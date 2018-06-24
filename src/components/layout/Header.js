@@ -37,7 +37,7 @@ function mapStateToProps(state){
     return {
         isAdminAuthenticated: !!state.admin.token,
         isStudentAuthenticated: !!state.student.token,
-        isTeacherAuthenticated: !!state.student.token,
+        isTeacherAuthenticated: !!state.teacher.token,
     }
 }
 

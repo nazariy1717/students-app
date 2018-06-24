@@ -15,6 +15,7 @@ import './styles/App.css';
 import registerServiceWorker from './registerServiceWorker';
 import { adminLoggedIn } from './actions/admin/adminAuth'
 import { studentLoggedIn } from './actions/student/studentAuth'
+import { teacherLoggedIn } from './actions/teacher/teacherAuth'
 
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
 
@@ -25,6 +26,10 @@ if(localStorage.adminJWT){
 else if(localStorage.studentJWT){
     const student = { token: localStorage.studentJWT};
     store.dispatch(studentLoggedIn(student));
+}
+else if(localStorage.teacherJWT){
+    const teacher = { token: localStorage.teacherJWT};
+    store.dispatch(teacherLoggedIn(teacher));
 }
 
 ReactDOM.render(

@@ -238,6 +238,10 @@
     max-width: 1200px;
     padding: 0 15px;
     margin: auto;
+    h2{
+      text-align: center;
+      margin: 45px 0;
+    }
   }
   &__column{
     @include grid-size(20%);
@@ -251,8 +255,9 @@
 .schedule{
   border: 1px solid #dedede;
   &__top{
-    background-color: #f3f3f3;
+    background-color: #2185d0;
     padding: 5px;
+    color: #fff;
     text-align: center;
     span{
       font-weight: bold;
@@ -268,6 +273,23 @@
   &__{}
 }
 
+
+.schedule-table{
+
+  table{
+    width: 550px;
+    border: 1px solid #dedede;
+    margin-bottom: 30px;
+    th,td{
+      text-align: left;
+      padding: 5px;
+      border: 1px solid #dedede;
+    }
+  }
+  span{
+    display: block;
+  }
+}
 
 
 
