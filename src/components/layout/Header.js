@@ -30,6 +30,8 @@ const header = (
 
 header.protoTypes = {
     isAdminAuthenticated: PropTypes.bool.isRequired,
+    isStudentAuthenticated: PropTypes.bool.isRequired,
+    isTeacherAuthenticated: PropTypes.bool.isRequired,
     logout: PropTypes.func.isRequired
 };
 

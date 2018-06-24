@@ -639,7 +639,7 @@ h1 {
   content: '';
   position: absolute;
   left: 0;
-  top: 1px;
+  top: -13px;
   width: 15px;
   height: 15px;
   border: 1px solid rgba(0, 0, 0, 0.54);
@@ -649,8 +649,8 @@ h1 {
 [type="checkbox"]:checked + label:after {
   content: "н";
   position: absolute;
-  top: -2px;
-  left: 4px;
+  top: -16px;
+  left: 3px;
   color: var(--col-blue);
   font-size: 15px;
   font-weight: bold;
@@ -953,10 +953,21 @@ h1 {
     .schedule__top span {
       font-weight: bold; }
   .schedule__row {
+    cursor: pointer;
     padding: 5px;
     border-bottom: 1px solid #dedede; }
+    .schedule__row a {
+      text-decoration: none; }
     .schedule__row span {
-      display: block; }
+      display: block;
+      color: #222; }
+    .schedule__row:hover {
+      color: #fff;
+      background-color: #222; }
+      .schedule__row:hover span {
+        color: #fff;
+        background-color: #222;
+        text-decoration: none; }
 
 .schedule-table table {
   width: 550px;

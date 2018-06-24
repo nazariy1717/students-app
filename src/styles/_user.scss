@@ -264,10 +264,24 @@
     }
   }
   &__row{
+    cursor: pointer;
     padding: 5px;
     border-bottom: 1px solid #dedede;
+    a{
+      text-decoration: none;
+    }
     span{
       display: block;
+      color: #222;
+    }
+    &:hover{
+      color: #fff;
+      background-color: #222;
+      span{
+        color: #fff;
+        background-color: #222;
+        text-decoration: none;
+      }
     }
   }
   &__{}

@@ -14,10 +14,12 @@ import LessonPage from "./components/admin/pages/LessonPage";
 /* student pages*/
 import StudentAuth from "./components/student/pages/StudentAuth";
 import StudentPanel from "./components/student/pages/StudentPanel";
+import StudentLesson from "./components/student/pages/StudentLesson";
 
 /* teacher pages*/
 import TeacherAuth from "./components/teacher/pages/TeacherAuth";
 import TeacherPanel from "./components/teacher/pages/TeacherPanel";
+import TeacherLesson from "./components/teacher/pages/TeacherLesson";
 
 /*Routes*/
 import AdminRoute from "./components/routes/AdminRoute";
@@ -47,9 +49,11 @@ const App = ({ location}) =>(
 
 
         <StudentRoute path="/student/panel" location={location} exact component={StudentPanel} />
+        <StudentRoute path="/student/lesson_2" location={location} exact component={StudentLesson} />
 
 
         <TeacherRoute path="/teacher/panel" location={location} exact component={TeacherPanel} />
+        <TeacherRoute path="/teacher/lesson_2" location={location} exact component={TeacherLesson} />
 
 
 
